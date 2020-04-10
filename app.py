@@ -220,7 +220,7 @@ def check_answer(viber_id, user_answer):
         select_query2 = session.query(Learning.right_answer).filter(Learning.word == question['word']).filter(
             Learning.user_id == select_query[1]).one()
         session.close()
-        check = f'Верно. Вы правильно перевели это слово {select_query2[0]} раз.'
+        check = f'Верно. Вы правильно перевели это слово {select_query2[0]} раз(а).'
     return TextMessage(text=check, keyboard=KEYBOARD, tracking_data='tracking_data')
 
 
@@ -335,7 +335,7 @@ def incoming():
         new_current_id = viber_request.user.id
         add_user(new_current_id)
         viber.send_messages(viber_request.user.id, [
-            TextMessage(text="Бот предназначен для заучивания иностранных слов.\nДля прохождения теста нажмите 'Начать'",
+            TextMessage(text="Бот предназначен для заучивания иностранных слов.\nДля прохождения теста нажмите 'Начать'.",
                         keyboard=START_KEYBOARD, tracking_data='tracking_data')
         ])
     if isinstance(viber_request, ViberMessageRequest):
