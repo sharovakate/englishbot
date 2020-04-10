@@ -21,6 +21,22 @@ with open("english_words.json", "r", encoding='utf-8') as f:
 	
 app = Flask(__name__)
 
+
+class TokenHolder():
+    def __init__(self):
+        self.q = deque(maxlen=10)
+
+    def add_token(self, token):
+        self.q.append(token)
+
+    def check_token(self, token):
+        if token in self.q:
+            return True
+        return False
+
+    def get_all(self):
+        print(self.q)
+
 bot_configuration = BotConfiguration(
     name='RinRinBot',
     avatar='http://viber.com/avatar.jpg',
