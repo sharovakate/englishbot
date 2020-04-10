@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Настройки</title>
+</head>
+<body>
+    <form method="post" action="/accept">
+        Введите значение параметров<br>
+        Время напоминания в секундах:<br>
+        <input type="number" name="remind_time" value={{remind_time}}><br>
+        Количество слов в одном раунде:<br>
+        <input type="number" name="count_words" value={{count_words}}><br>
+        Количество правильных ответов для заучивания слова:<br>
+        <input type="number" name="count_to_learn" value={{count_to_learn}}><br>
+        <input type="submit" value="Сохранить">
+    </form>
+</body>
+</html>
