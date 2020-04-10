@@ -328,8 +328,6 @@ KEYBOARD = {
 
 @app.route('/incoming', methods=['POST'])
 def incoming():
-    viber_request = viber.parse_request(request.get_data())
-    print(viber_request)
     if isinstance(viber_request, ViberConversationStartedRequest):
         new_current_id = viber_request.user.id
         add_user(new_current_id)
