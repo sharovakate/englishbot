@@ -41,7 +41,7 @@ sched = BlockingScheduler()
 @sched.scheduled_job('interval', minutes=1)
 def timed_job():
     session = Session()
-    all_users = session.query(Users.viber_id, Users.dt_last_answer)
+    all_users = session.query(Users.viber_id, Users.last_time_answer)
     session.close()
 
     session = Session()
