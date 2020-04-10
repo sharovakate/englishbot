@@ -141,8 +141,8 @@ def send_question(viber_id):
         select_query2 = session.query(Learning.word).filter(Learning.user_id == select_query[2]).filter(
             Learning.right_answer >= settings[1]).count()
         session.close()
-        return TextMessage(text=f'Вы ответили верно на {temp_correct_answers} вопроса из {settings[0]}. \n'
-                                f'Всего выучено {select_query2} слов из {50 - select_query2}. \n'
+        return TextMessage(text=f'Вы ответили верно на {temp_correct_answers} из {settings[0]} вопросов. \n'
+                                f'Всего выучено {select_query2} из 50 слов. \n'
                                 f'Время прохождения теста: {str(select_query[3])[:16]}. \n'
                                 f'Нажмите "Начать", чтобы пройти тест заново.',
                            keyboard=START_KEYBOARD, tracking_data='tracking_data')
